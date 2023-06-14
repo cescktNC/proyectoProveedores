@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h1>{{ title }}</h1>
+
+    {# TODO: add an image of the record #}
+
+    <div>
+        Proveedores:
+        <ul>
+            {% for proveedor in proveedores %}
+                <li>
+                    {{ proveedor.nombre|upper }} - {{ proveedor.email }} - {{ proveedor.tfn }} - {{ proveedor.tipo }}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+{% endblock %}
