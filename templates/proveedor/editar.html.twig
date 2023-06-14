@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('styles/proveedores.css') }}">
+{% endblock %}
+
+{% block body %}
+
+<div class="mb-3 titulo mt-3 d-flex justify-content-between">
+    <h1>{{ title }}</h1>
+</div>
+
+    <div class="container d-flex align-self-center">
+
+        <div class="w-50 mr-2">
+            <img width="90%" src="{{ asset('img/proveedor.jpg') }}" alt="Imagen sección datos proveedores">
+        </div>
+
+        <div class="row d-flex flex-column">
+            
+        </div>
+
+    </div>
+
+{% endblock %}

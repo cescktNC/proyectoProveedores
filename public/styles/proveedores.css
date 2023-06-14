@@ -1,0 +1,27 @@
+h1 {
+    margin: 0;
+}
+
+.titulo a {
+    line-height: 2;
+    font-weight: bold;
+}
+
+.titulo a:hover {
+    background-color: rgb(133, 133, 133);
+    border-color: rgb(133, 133, 133);
+}
+
+.fa-eye,
+.fa-pen,
+.fa-trash {
+    cursor: pointer;
+    color: rgb(133, 133, 133);
+    transition: all .2s;
+}
+
+.fa-eye:hover,
+.fa-pen:hover,
+.fa-trash:hover {
+    color: black;
+}

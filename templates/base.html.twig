@@ -3,18 +3,35 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Viajes Para Ti{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {# <link rel="icon" href="{{ asset("img/ViajesParaTiIcon.png") }}"> #}
-        {% block stylesheets %}
-        {% endblock %}
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link rel="icon" type="image/png" href="{{ asset('img/ViajesParaTiIcon.png') }}">
+        <link rel="stylesheet" href="{{ asset('styles/app.css') }}">
+        <script src="https://kit.fontawesome.com/ab9c717bd5.js" crossorigin="anonymous" defer></script>
 
-        {% block javascripts %}
+        {% block stylesheets %}
         {% endblock %}
     </head>
     <body>
-        {% block body %}
-            {% block tituloSeccion %}
+        <nav class="p-1 navbar navbar-expand-lg d-flex align-content-center">
+            <div class="container">
+                <a class="navbar-brand" href="{{ path('paginaPrincipal') }}"><img width="105" src="{{ asset('img/ViajesParaTiLogo.png') }}" alt="Logotipo de Viajes Para Ti"></a>
+                
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                      <a class="nav-item nav-link active" href="{{ path('proveedores') }}">Proveedores</a>
+                      <a class="nav-item nav-link" href="#">Escapadas</a>
+                      <a class="nav-item nav-link" href="#">Packs</a>
+                      <a class="nav-item nav-link" href="#">Usuarios</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container d-flex flex-column">
+            {% block body %}
+                {% block tituloSeccion %}
+                {% endblock %}
             {% endblock %}
-        {% endblock %}
+        </div>
     </body>
 </html>

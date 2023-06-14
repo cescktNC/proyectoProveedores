@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('styles/proveedores.css') }}">
+{% endblock %}
+
+{% block body %}
+
+<div class="mb-3 titulo mt-3 d-flex justify-content-between">
+    <h1>{{ title }}</h1>
+</div>
+
+    <div class="container d-flex align-self-center">
+
+        <div class="w-50 mr-2">
+            <img width="90%" src="{{ asset('img/proveedor.jpg') }}" alt="Imagen sección datos proveedores">
+        </div>
+
+        <div class="row d-flex flex-column">
+            <div class="col fs-5">
+                <strong class="pl-5">Nombre: </strong><span>{{ proveedor.nombre|capitalize }}</span><br>
+            </div>
+            <div class="col fs-5">
+                <strong class="pl-5">Email: </strong><span>{{ proveedor.email|lower }}</span><br>
+            </div>
+            <div class="col fs-5">
+                <strong class="pl-5">Teléfono: </strong><span>{{ proveedor.tfn }}</span><br>
+            </div>
+            <div class="col fs-5">
+                <strong class="pl-5">Tipo: </strong><span>{{ proveedor.tipo|capitalize }}</span><br>
+            </div>
+            <div class="col fs-5">
+                {% if proveedor.activo %}
+                    <strong class="pl-5">Activo: </strong><span>Si</span><br>
+                {% else %}
+                    <strong class="pl-5">Activo: </strong><span>No</span><br>
+                {% endif %}
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}
