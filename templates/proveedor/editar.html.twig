@@ -16,8 +16,68 @@
             <img width="90%" src="{{ asset('img/proveedor.jpg') }}" alt="Imagen sección datos proveedores">
         </div>
 
-        <div class="row d-flex flex-column">
-            
+        <div class="pt-5 pb-5 w-50 bg-white shadow p-3 bg-white rounded">
+            <form method="POST" action="{{ path('actualizarProveedor', { id: proveedor.id }) }}">
+                <div class="row mb-3">
+                    <label for="nombre" class="col-md-4 col-form-label text-md-end"><strong class="pl-5">Nombre: </strong></label>
+                    <div class="col-md-6">
+                        <input id="nombre" type="text" class="form-control" name="nombre" value="{{ proveedor.nombre }}" required autofocus>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="email" class="col-md-4 col-form-label text-md-end"><strong class="pl-5">Email: </strong></label>
+                    <div class="col-md-6">
+                        <input id="email" type="text" class="form-control" name="email" value="{{ proveedor.email }}" required autofocus>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="telefono" class="col-md-4 col-form-label text-md-end"><strong class="pl-5">Teléfono: </strong></label>
+                    <div class="col-md-6">
+                        <input id="telefono" type="text" class="form-control" name="telefono" value="{{ proveedor.telefono }}" autofocus>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="tipo" class="col-md-4 col-form-label text-md-end"><strong class="pl-5">Tipo: </strong></label>
+                    <div class="col-md-6">
+                        <select name="tipo" class="form-control">
+                            {% if proveedor.tipo == 'hotel' %}
+                                <option value="hotel" selected>Hotel</option>
+                                <option value="pista">Pista</option>
+                                <option value="complemento">Complemento</option>
+                            {% elseif proveedor.tipo == 'pista' %}
+                                <option value="hotel">Hotel</option>
+                                <option value="pista" selected>Pista</option>
+                                <option value="complemento">Complemento</option>
+                            {% else %}
+                                <option value="hotel">Hotel</option>
+                                <option value="pista">Pista</option>
+                                <option value="complemento" selected>Complemento</option>
+                            {% endif %}
+                        </select>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="activo" class="col-md-4 col-form-label text-md-end"><strong class="pl-5">Activo: </strong></label>
+                    <div class="col-md-6">
+                        <select name="activo" class="form-control">
+                            {% if proveedor.activo %}
+                                <option value="true" selected>Si</option>
+                                <option value="false">No</option>
+                            {% else %}
+                                <option value="true">Si</option>
+                                <option value="false" selected>No</option>
+                            {% endif %}
+                        </select>
+                    </div>
+                </div>
+                <div class="row mb-0">
+                    <div class="col-md-6 offset-md-4">
+                        <button type="submit" class="w-100 btn btn-primary btn-dark">
+                            Actualizar
+                        </button>
+                    </div>
+                </div>
+            </form>
         </div>
 
     </div>

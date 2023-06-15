@@ -26,19 +26,19 @@
         <tbody>
             {% for proveedor in proveedores %}
                 <tr>
-                    <th scope="row" class="text-center"></th>
+                    <th scope="row" class="text-center">{{ proveedor.id }}</th>
                     <td>{{ proveedor.nombre|upper }}</td>
                     <td>{{ proveedor.email }}</td>
-                    <td class="text-center">{{ proveedor.tfn }}</td>
+                    <td class="text-center">{{ proveedor.telefono }}</td>
                     <td class="text-center">{{ proveedor.tipo }}</td>
                     {% if proveedor.activo %}
                         <td class="text-center">Si</td>
                     {% else %}
                         <td class="text-center">No</td>
                     {% endif %}
-                    <td class="text-center"><a href="{{ path('mostrarProveedor', { id: 1 }) }}"><i class="fas fa-eye"></i></a></td>
-                    <td class="text-center"><a href="{{ path('editarProveedor', { id: 1 }) }}"><i class="fas fa-pen"></i></a></td>
-                    <td class="text-center"><a href="{{ path('borrarProveedor', { id: 1 }) }}"><i class="fas fa-trash"></i></a></td>
+                    <td class="text-center"><a href="{{ path('mostrarProveedor', { id: proveedor.id }) }}"><i class="fas fa-eye"></i></a></td>
+                    <td class="text-center"><a href="{{ path('editarProveedor', { id: proveedor.id }) }}"><i class="fas fa-pen"></i></a></td>
+                    <td class="text-center"><a href="{{ path('borrarProveedor', { id: proveedor.id }) }}"><i class="fas fa-trash"></i></a></td>
                 </tr>
             {% endfor %}
         </tbody>
