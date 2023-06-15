@@ -1,7 +1,7 @@
 ![React Logo](/public/img/ViajesParaTiLogo.png)
 # :blue_book: Proyecto Proveedores
 
-Se ha desarrollado con el framework Symfony un pequeño proyecto para introducir, en un sistema de base de datos en MySQL, los proveedores con los que se trabaja habitualmente.
+Se ha desarrollado con el framework **Symfony** un pequeño proyecto para introducir, en un sistema de base de datos en *MySQL*, los proveedores con los que se trabaja habitualmente.
 ## Datos de un proveedor:
 1. Nombre
 2. Correo electrónico
