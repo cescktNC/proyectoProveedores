@@ -8,3 +8,26 @@
 .nav-item:hover {
     color: rgb(133, 133, 133);
 }
+
+.imagenFondo {
+    background-image: url(../img/fondo_principal.jpg);
+    filter: grayscale(70%);
+    background-position: center center;
+    background-size: cover;
+    height: 100vh;
+    min-height: 60rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.caja {
+    background-color: white;
+    max-width: 60rem;
+}
+
+h1 {
+    color: #a83439;
+    font-size: 5rem;
+    padding-bottom: 1rem;
+}

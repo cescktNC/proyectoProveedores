@@ -10,86 +10,76 @@
     <h2>{{ title }}</h2>
 </div>
 
-    <div class="container d-flex align-self-center">
+    <div class="container d-flex align-self-center align-items-center">
 
-        <div class="w-50 mr-2">
-            <img width="90%" src="{{ asset('img/proveedor.jpg') }}" alt="Imagen sección datos proveedores">
+        <div style="width: 40%;" class="mr-2">
+            <img width="90%" src="{{ asset('img/proveedor.jpg') }}" alt="Imagen sección registro proveedores">
         </div>
 
-        <div class="pt-5 pb-5 w-50 bg-white shadow p-3 bg-white rounded">
-            <form method="POST" action="{{ path('actualizarProveedor', { id: proveedor.id ?? id }) }}">
+        <div style="width: 60%;" class="pt-5 pb-5 bg-white shadow p-3 bg-white rounded">
+            <form method="POST" action="{{ path('crearProveedor') }}">
                 <div class="row mb-3">
                     <label for="nombre" class="col-md-4 col-form-label text-md-end"><strong class="pl-5">Nombre: </strong></label>
                     <div class="col-md-6">
-                        <input id="nombre" type="text" class="form-control" name="nombre" value="{{ proveedor.datos.nombre ?? proveedor.nombre }}" required autofocus>
-                        {% if proveedor is iterable %}
-                            <small class="text-danger">{{ proveedor.nombre ?? '' }}</small>
-                        {% endif %}
+                        <input id="nombre" type="text" class="form-control" name="nombre" value="{{ proveedor.datos.nombre ?? '' }}" required autofocus>
+                        <small class="text-danger">{{ proveedor.nombre ?? '' }}</small>
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label for="email" class="col-md-4 col-form-label text-md-end"><strong class="pl-5">Email: </strong></label>
                     <div class="col-md-6">
-                        <input id="email" type="text" class="form-control" name="email" value="{{ proveedor.datos.email ?? proveedor.email }}" required autofocus>
-                        {% if proveedor is iterable %}
-                            <small class="text-danger">{{ proveedor.email ?? '' }}</small>
-                            <small class="text-danger">{{ proveedor.existente ?? '' }}</small>
-                        {% endif %}
+                        <input id="email" type="text" class="form-control" name="email" value="{{ proveedor.datos.email ?? '' }}" required autofocus>
+                        <small class="text-danger">{{ proveedor.email ?? '' }}</small>
+                        <small class="text-danger">{{ proveedor.existente ?? '' }}</small>
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label for="telefono" class="col-md-4 col-form-label text-md-end"><strong class="pl-5">Teléfono: </strong></label>
                     <div class="col-md-6">
-                        <input id="telefono" type="text" class="form-control" name="telefono" value="{{ proveedor.datos.telefono ?? proveedor.telefono }}" autofocus>
-                        {% if proveedor is iterable %}
-                            <small class="text-danger">{{ proveedor.telefono ?? '' }}</small>
-                        {% endif %}
+                        <input id="telefono" type="text" class="form-control" name="telefono" value="{{ proveedor.datos.telefono ?? '' }}" autofocus>
+                        <small class="text-danger">{{ proveedor.telefono ?? '' }}</small>
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label for="tipo" class="col-md-4 col-form-label text-md-end"><strong class="pl-5">Tipo: </strong></label>
                     <div class="col-md-6">
                         <select name="tipo" class="form-control" required>
-                            {% if proveedor is iterable %}
+                            {% if proveedor is defined %}
                                 <option value=""></option>
                                 <option value="hotel" {% if proveedor.datos.tipo == 'hotel' %}selected{% endif %}>Hotel</option>
                                 <option value="pista" {% if proveedor.datos.tipo == 'pista' %}selected{% endif %}>Pista</option>
                                 <option value="complemento" {% if proveedor.datos.tipo == 'complemento' %}selected{% endif %}>Complemento</option>
                             {% else %}
-                                <option value=""></option>
-                                <option value="hotel" {% if proveedor.tipo == 'hotel' %}selected{% endif %}>Hotel</option>
-                                <option value="pista" {% if proveedor.tipo == 'pista' %}selected{% endif %}>Pista</option>
-                                <option value="complemento" {% if proveedor.tipo == 'complemento' %}selected{% endif %}>Complemento</option>
+                                <option value="" selected></option>
+                                <option value="hotel">Hotel</option>
+                                <option value="pista">Pista</option>
+                                <option value="complemento">Complemento</option>
                             {% endif %}
                         </select>
-                        {% if proveedor is iterable %}
-                            <small class="text-danger">{{ proveedor.tipo ?? '' }}</small>
-                        {% endif %}
+                        <small class="text-danger">{{ proveedor.tipo ?? '' }}</small>
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label for="activo" class="col-md-4 col-form-label text-md-end"><strong class="pl-5">Activo: </strong></label>
                     <div class="col-md-6">
                         <select name="activo" class="form-control" required>
-                            {% if proveedor is iterable %}
+                            {% if proveedor is defined %}
                                 <option value=""></option>
                                 <option value="true" {% if proveedor.datos.activo == 'true' %}selected{% endif %}>Si</option>
                                 <option value="false" {% if proveedor.datos.activo == 'false' %}selected{% endif %}>No</option>
                             {% else %}
-                                <option value=""></option>
-                                <option value="true" {% if proveedor.activo == 1 %}selected{% endif %}>Si</option>
-                                <option value="false" {% if proveedor.activo == 0 %}selected{% endif %}>No</option>
+                                <option value="" selected></option>
+                                <option value="true">Si</option>
+                                <option value="false">No</option>
                             {% endif %}
                         </select>
-                        {% if proveedor is iterable %}
-                            <small class="text-danger">{{ proveedor.activo ?? '' }}</small>
-                        {% endif %}
+                        <small class="text-danger">{{ proveedor.activo ?? '' }}</small>
                     </div>
                 </div>
                 <div class="row mb-0">
                     <div class="col-md-6 offset-md-4">
                         <button type="submit" class="w-100 btn btn-primary btn-dark">
-                            Actualizar
+                            Crear
                         </button>
                     </div>
                 </div>
