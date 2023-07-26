@@ -289,8 +289,8 @@ class ProveedoresController extends AbstractController
         $proveedor->setTipo($nuevoProveedor['tipo']);
         $proveedor->setActivo($nuevoProveedor['activo']);
 
-        $manager->persist($proveedor);
-        $manager->flush();
+        $manager->persist($proveedor); // Para que doctrine la reconozca
+        $manager->flush(); // Para guardarlo
 
         // Vuelvo a recuperar todos los proveedores para mandarselos a la vista
         $repositorio = $this->entityManager->getRepository(Proveedores::class);
